@@ -13,7 +13,7 @@ module.exports = (customerMoney, isMovieFull, rating, age, isParentWith) => {
         customerMoney = true;
     }
 
-    if (isMovieFull) {
+    if (isMovieFull === true) {
         isMovieFull = false;
     } else {
         isMovieFull = true;
