@@ -3,4 +3,13 @@
 // Notes: 
 //   - You can expect a valid string for each test case.
 module.exports = (str) => {
+
+    const words = str.split(" ");
+
+    for (i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+    }
+    
+    return words.join(" ");
+
 }
