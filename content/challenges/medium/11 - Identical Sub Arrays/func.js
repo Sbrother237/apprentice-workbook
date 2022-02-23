@@ -4,4 +4,18 @@
 //   - Single-element arrays count as (trivially) having identical elements.
 module.exports = (arr) => {
 
+    let allEqual;
+    let result = 0;
+
+    for (i = 0; i < arr.length; i++) {
+
+        allEqual = arr[i].every(val => val === arr[i][0]);
+
+        if (allEqual == true) {
+            result++;
+        }
+    }
+    
+    return result;
+
 }
