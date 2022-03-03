@@ -8,7 +8,7 @@ module.exports = (word) => {
     let result = "";
 
     for (i = 0; i < word.length; i++) {
-        let char = word.charAt(i);
+        let char = word[i];
 
         if (char !== last) {
             result += char;
