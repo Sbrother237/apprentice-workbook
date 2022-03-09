@@ -3,12 +3,31 @@
 // An empty string counts as a palindrome.
 module.exports = (str) => {
 
-    let re = /[\W]/g;
+    let lowerCaseStr = str.toLowerCase();
+    let forwards = "";
+    let backwards = "";
+    let last = "";
 
-    let lowCaseStr = str.toLowerCase().replace(re, '');
+    for (front = 0; front < lowerCaseStr.length; front++) {
+        let frontChar = lowerCaseStr[front];
 
-    let reverseStr = lowCaseStr.split('').reverse().join('');
+        forwards += frontChar;
 
-    return reverseStr === lowCaseStr;
+        last = frontChar;
+    }
+
+    for (back = lowerCaseStr.length - 1; back >= 0; back--) {
+        let backChar = lowerCaseStr[back];
+
+        backwards += backChar;
+
+        last = backChar;
+    }
+
+    if (forwards === backwards) {
+        return true;
+    } else {
+        return false;
+    }
 
 }
