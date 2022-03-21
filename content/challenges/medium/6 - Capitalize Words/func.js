@@ -4,12 +4,34 @@
 //   - You can expect a valid string for each test case.
 module.exports = (str) => {
 
-    const words = str.split(" ");
+    let newArr = [];
+    let tempWord = "";
+    let newStr = "";
 
-    for (i = 0; i < words.length; i++) {
-        words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+    for (strIdx = 0; strIdx <= str.length; strIdx++) {
+        let char = str[strIdx];
+
+        if (strIdx > str.length - 1 || char == ' ') {
+            newArr.push(tempWord);
+            tempWord = "";
+        } else if (char != ' ') {
+            tempWord += char
+        }
+
+    }
+
+    for (wordIdx = 0; wordIdx < newArr.length; wordIdx++) {
+        let word = newArr[wordIdx];
+        word = word[0].toUpperCase() + word.substr(1);
+        newStr += word.toString();
+        
+        if (wordIdx + 1 != newArr.length) {
+            newStr += ' ';
+        }
+
     }
     
-    return words.join(" ");
+
+    return newStr;
 
 }

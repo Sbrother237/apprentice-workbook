@@ -4,4 +4,47 @@
 // Notes:
 //   - You can expect a valid string to be provided for each test case.
 module.exports = (str) => {
+
+    let newArr = [];
+    let tempWord = "";
+    let newStr = "";
+
+    for (stringIndex = 0; stringIndex <= str.length; stringIndex++) {
+        let char = str[stringIndex];
+
+        if (stringIndex > str.length - 1 || char == ' ') {
+            newArr.push(tempWord);
+            tempWord = "";
+        } else if (char != ' ') {
+            tempWord += char
+        }
+
+    }
+
+    for (wordIdx = 0; wordIdx < newArr.length; wordIdx++) {
+
+        const word = newArr[wordIdx];
+
+        if (word.length >= 5) {
+            let reversedWord = "";
+            for (letterIdx = word.length - 1; letterIdx >= 0; letterIdx--) {
+                const letter = word[letterIdx];
+
+                reversedWord += letter;
+            }
+            
+            newStr += reversedWord;
+            
+        } else {
+            newStr += word.toString();
+        }
+
+        if (wordIdx + 1 != newArr.length) {
+            newStr += ' ';
+        }
+
+    }
+    
+    return newStr;
+
 }
